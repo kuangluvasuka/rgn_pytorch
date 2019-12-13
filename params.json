@@ -1,0 +1,42 @@
+{
+  "data": {
+    "data_dir": "data/casp7",
+    "batch_size": 100,
+    "num_evo_entry": 21,
+    "max_sequence_length": 700
+  },
+
+  "model": {
+    "use_residue_embedding": true,
+    "num_residue": 20,
+    "embedding_dim": 10,
+    "rnn_cell": "lstm",
+
+    "rnn_layer_size": [400, 400],
+    "rnn_layer_stacks": [1, 1],
+    "rnn_layer_dropout": [0, 0],
+    "bidirectional": true,
+    "rnn_skip_connection": true,
+
+    "alphabet_temperature": 1.0,
+    "use_alphabet": true,
+    "alphabet_size": 60,
+    "is_angularized": true,
+    "non_linear_dihedral": true,
+    "dihedral_fc_layer_dim": [100],
+
+    "num_dihedrals": 3,
+    "cartesion_dim": 3
+  },
+  
+  "train": {
+    "save_path": "saved/checkpoint",
+    "save_step": 20,
+    "eval_step": 5,
+    "epochs": 70,
+    "learning_rate": 0.001,
+    "loss_fn": "drmsd",
+    "atoms": "c_alpha"
+  }
+
+}
