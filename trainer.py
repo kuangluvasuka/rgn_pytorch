@@ -58,14 +58,14 @@ class Trainer():
         self._global_step += 1
 
       avg_loss = epoch_loss / len(self.dataloader['train'].dataset)
-      print("Epoch: {} | Avg drmsd: {:.3f} | Time: {:.2f}".format(epoch,
+      print("Epoch: {} | Avg drmsd: {:.3f} | Time: {:.2f}".format(epoch + 1,
                                                                   avg_loss,
                                                                   time.time() - start))
 
-      if epoch % self.cfg['save_step'] == 0:
+      if (epoch + 1) % self.cfg['save_step'] == 0:
         self.save(epoch)
 
-      if epoch % self.cfg['eval_step'] == 0:
+      if (epoch + 1) % self.cfg['eval_step'] == 0:
         self.evaluate()
 
   def evaluate(self, dl=None):
